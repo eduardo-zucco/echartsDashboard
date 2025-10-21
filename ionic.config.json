@@ -1,0 +1,7 @@
+{
+  "name": "chartsTest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
