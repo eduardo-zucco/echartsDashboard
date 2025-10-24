@@ -1,0 +1,325 @@
+// KPI Section
+.kpi-section {
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.kpi-card {
+  margin: 0;
+  background: linear-gradient(135deg, rgba(var(--ion-color-dark-rgb), 0.4) 0%, rgba(var(--ion-color-dark-rgb), 0.2) 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  ion-card-content {
+    padding: 20px;
+  }
+}
+
+.kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.kpi-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 24px;
+    color: var(--ion-color-light);
+  }
+
+  &[data-color="primary"] {
+    background: linear-gradient(135deg, var(--ion-color-primary) 0%, var(--ion-color-primary-shade) 100%);
+  }
+
+  &[data-color="success"] {
+    background: linear-gradient(135deg, var(--ion-color-success) 0%, var(--ion-color-success-shade) 100%);
+  }
+
+  &[data-color="warning"] {
+    background: linear-gradient(135deg, var(--ion-color-warning) 0%, var(--ion-color-warning-shade) 100%);
+  }
+
+  &[data-color="danger"] {
+    background: linear-gradient(135deg, var(--ion-color-danger) 0%, var(--ion-color-danger-shade) 100%);
+  }
+
+  &[data-color="tertiary"] {
+    background: linear-gradient(135deg, var(--ion-color-tertiary) 0%, var(--ion-color-tertiary-shade) 100%);
+  }
+}
+
+.kpi-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+
+  ion-icon {
+    font-size: 16px;
+  }
+
+  &.positive {
+    color: var(--ion-color-success);
+    background: rgba(var(--ion-color-success-rgb), 0.15);
+  }
+
+  &.negative {
+    color: var(--ion-color-danger);
+    background: rgba(var(--ion-color-danger-rgb), 0.15);
+  }
+}
+
+.kpi-content {
+  .kpi-value {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: var(--ion-color-light);
+    line-height: 1;
+  }
+
+  .kpi-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: var(--ion-color-medium);
+  }
+
+  .kpi-subtitle {
+    font-size: 12px;
+    margin: 0;
+    color: var(--ion-color-medium-shade);
+  }
+}
+
+// Dashboard Grid
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 0 16px 16px 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.div1,
+.div2,
+.div3,
+.div4 {
+  min-height: 400px;
+}
+
+
+.chart-card {
+  margin: 0;
+  background: linear-gradient(135deg, rgba(var(--ion-color-dark-rgb), 0.4) 0%, rgba(var(--ion-color-dark-rgb), 0.2) 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  &.full-width {
+    margin: 0 16px 16px 16px;
+    min-height: 400px;
+  }
+
+  google-chart {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+.table-card {
+  margin: 0 16px 16px 16px;
+  background: linear-gradient(135deg, rgba(var(--ion-color-dark-rgb), 0.4) 0%, rgba(var(--ion-color-dark-rgb), 0.2) 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  overflow-x: scroll;
+
+  mat-card-header {
+    padding: 20px 20px 0 20px;
+
+    mat-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ion-color-light);
+      margin-bottom: 16px;
+    }
+  }
+
+  mat-card-content {
+    padding: 20px;
+  }
+
+  table {
+    width: 100%;
+    background: transparent;
+    color: var(--ion-color-light);
+
+    th {
+      background: rgba(var(--ion-color-dark-rgb), 0.5);
+      color: var(--ion-color-light);
+      font-weight: 600;
+      padding: 16px;
+      border-bottom: 2px solid rgba(var(--ion-color-primary-rgb), 0.5);
+    }
+
+    td {
+      padding: 16px;
+      color: var(--ion-color-light);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    tr:hover {
+      background: rgba(var(--ion-color-primary-rgb), 0.1);
+    }
+  }
+}
+
+.variation-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+
+  &.positive {
+    background: rgba(var(--ion-color-success-rgb), 0.15);
+    color: var(--ion-color-success);
+  }
+
+  &.negative {
+    background: rgba(var(--ion-color-danger-rgb), 0.15);
+    color: var(--ion-color-danger);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 992px) {
+  .kpi-section ion-col {
+    padding: 8px;
+  }
+
+  .kpi-value {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .kpi-card ion-card-content {
+    padding: 16px;
+  }
+
+  .kpi-value {
+    font-size: 24px !important;
+  }
+
+  .dashboard {
+    padding: 0 8px 8px 8px;
+    gap: 8px;
+  }
+
+  .chart-card {
+    &.full-width {
+      margin: 0 8px 8px 8px;
+    }
+    padding: 10px;
+  }
+
+  .table-card {
+    margin: 0 8px 8px 8px;
+  }
+}
+
+// Scrollbar styling for dark theme
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--ion-color-dark-rgb), 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--ion-color-primary-rgb), 0.5);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(var(--ion-color-primary-rgb), 0.7);
+  }
+}
+
+// Animation for charts loading
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chart-card,
+.kpi-card,
+.table-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+
+ion-card {
+  --background: rgb(182, 182, 182);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mat-elevation-z0 {
+  box-shadow: none !important;
+}
+
+::ng-deep {
+  .mat-mdc-table {
+    background: transparent !important;
+  }
+
+  .mat-mdc-header-row {
+    background: rgba(var(--ion-color-dark-rgb), 0.5) !important;
+  }
+
+  .mat-mdc-row:hover {
+    background: rgba(var(--ion-color-primary-rgb), 0.1) !important;
+  }
+
+  .mat-mdc-cell,
+  .mat-mdc-header-cell {
+    color: var(--ion-color-light) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  }
+}

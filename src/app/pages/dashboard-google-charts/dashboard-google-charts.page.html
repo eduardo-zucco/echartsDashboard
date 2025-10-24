@@ -1,0 +1,177 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Dashboard Google Charts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Dashboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- KPI Section -->
+  <div class="kpi-section">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let kpi of kpiCards">
+          <ion-card class="kpi-card" [attr.data-color]="kpi.color">
+            <ion-card-content>
+              <div class="kpi-header">
+                <div class="kpi-icon-wrapper" [attr.data-color]="kpi.color">
+                  <ion-icon [name]="kpi.icon"></ion-icon>
+                </div>
+                <div
+                  class="kpi-trend"
+                  [class.positive]="kpi.trend && kpi.trend > 0"
+                  [class.negative]="kpi.trend && kpi.trend < 0"
+                >
+                  <ion-icon
+                    [name]="kpi.trend && kpi.trend > 0 ? 'trending-up-outline' : 'trending-down-outline'"
+                  ></ion-icon>
+                  <span>{{kpi.trend}}%</span>
+                </div>
+              </div>
+              <div class="kpi-content">
+                <h2 class="kpi-value">{{kpi.value}}</h2>
+                <p class="kpi-title">{{kpi.title}}</p>
+                <p class="kpi-subtitle">{{kpi.subtitle}}</p>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <!-- TreeMap -->
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-content>
+            <google-chart
+              [type]="spendChartType"
+              [data]="spendChartData"
+              [columns]="spendChartColumns"
+              [options]="spendChartOptions"
+              [height]="400"
+              [width]="500"
+            ></google-chart>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- ColumnChart -->
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-content>
+            <google-chart
+              [type]="savingsChartType"
+              [data]="savingsChartData"
+              [columns]="savingsChartColumns"
+              [options]="savingsChartOptions"
+              [height]="400"
+              [width]="500"
+            ></google-chart>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- BarChart -->
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-content>
+            <google-chart
+              [type]="maverickChartType"
+              [data]="maverickChartData"
+              [columns]="maverickChartColumns"
+              [options]="maverickChartOptions"
+              [height]="400"
+              [width]="500"
+            ></google-chart>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- PieChart Aderência -->
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-content>
+            <google-chart
+              [type]="contractChartType"
+              [data]="contractChartData"
+              [columns]="contractChartColumns"
+              [options]="contractChartOptions"
+              [height]="400"
+              [width]="500"
+            ></google-chart>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- PieChart Concentração -->
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <google-chart
+              [type]="concentrationChartType"
+              [data]="concentrationChartData"
+              [columns]="concentrationChartColumns"
+              [options]="concentrationChartOptions"
+              [height]="400"
+              [width]="500"
+            ></google-chart>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Table Section -->
+  <mat-card class="table-card">
+    <mat-card-header>
+      <mat-card-title>Evolução de Preços</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+        
+        <ng-container matColumnDef="produto">
+          <th mat-header-cell *matHeaderCellDef>Produto</th>
+          <td mat-cell *matCellDef="let element">{{element.produto}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="custoAnterior">
+          <th mat-header-cell *matHeaderCellDef>Custo Anterior</th>
+          <td mat-cell *matCellDef="let element">
+            R$ {{element.custoAnterior}}
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="custoAtual">
+          <th mat-header-cell *matHeaderCellDef>Custo Atual</th>
+          <td mat-cell *matCellDef="let element">R$ {{element.custoAtual}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="variacao">
+          <th mat-header-cell *matHeaderCellDef>Variação</th>
+          <td mat-cell *matCellDef="let element">
+            <span
+              class="variation-badge"
+              [ngClass]="{'positive': element.variacao < 0, 'negative': element.variacao > 0}"
+            >
+              {{element.variacao >= 0 ? '+' : ''}}{{element.variacao}}
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</ion-content>
