@@ -132,11 +132,13 @@
 // Chart Cards
 .chart-card {
   margin: 0;
-  background: linear-gradient(135deg, rgba(var(--ion-color-dark-rgb), 0.4) 0%, rgba(var(--ion-color-dark-rgb), 0.2) 100%);
+ // background: linear-gradient(135deg, rgba(var(--ion-color-dark-rgb), 0.4) 0%, rgba(var(--ion-color-dark-rgb), 0.2) 100%);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   height: 100%;
+  // background: rgb(61, 65, 65);
+  background: white;
 
   &.full-width {
     margin: 0 16px 16px 16px;
@@ -227,32 +229,32 @@
   }
 }
 
-@media (max-width: 576px) {
-  .kpi-card ion-card-content {
-    padding: 16px;
-  }
+// @media (max-width: 576px) {
+//   .kpi-card ion-card-content {
+//     padding: 16px;
+//   }
 
-  .kpi-value {
-    font-size: 24px !important;
-  }
+//   .kpi-value {
+//     font-size: 24px !important;
+//   }
 
-  .demo-chart {
-    min-height: 300px;
-  }
+//   .demo-chart {
+//     min-height: 300px;
+//   }
 
-  .dashboard {
-    padding: 0 8px 8px 8px;
-    gap: 8px;
-  }
+//   .dashboard {
+//     padding: 0 8px 8px 8px;
+//     gap: 8px;
+//   }
 
-  .chart-card.full-width {
-    margin: 0 8px 8px 8px;
-  }
+//   .chart-card.full-width {
+//     margin: 0 8px 8px 8px;
+//   }
 
-  .table-card {
-    margin: 0 8px 8px 8px;
-  }
-}
+//   .table-card {
+//     margin: 0 8px 8px 8px;
+//   }
+// }
 
 // Scrollbar styling for dark theme
 ::-webkit-scrollbar {

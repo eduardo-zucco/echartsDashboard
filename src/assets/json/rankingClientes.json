@@ -1,0 +1,100 @@
+[
+  {
+    "id": "rankingClientesCustom",
+    "title": "Ranking de clientes por faturamento",
+    "type": "horizontalBar",
+    "endpoint": "vendedor/clientes-faturamento",
+    "option": {
+      "title": {
+        "text": "Ranking de clientes por faturamento",
+        "show": true
+      },
+      "tooltip": {
+        "trigger": "axis",
+        "show": true,
+        "axisPointer": {
+          "type": "shadow"
+        }
+      },
+      "legend": {
+        "show": false
+      },
+      "grid": {
+        "containLabel": true
+      },
+      "xAxis": {
+        "type": "value",
+        "show": true,
+        "axisLine": {
+          "show": false
+        },
+        "z": 2,
+        "axisTick": {
+          "show": false
+        },
+        "axisLabel": {
+          "formatter": "{value}",
+          "inside": false,
+          "show": true,
+          "interval": 0,
+          "rotate": 45
+        },
+        "boundaryGap": [0, 0.01]
+      },
+      "yAxis": [
+        {
+          "type": "category",
+          "data": [],
+          "show": true,
+          "position": "left",
+          "axisLine": {
+            "show": false
+          },
+          "z": 3,
+          "axisTick": {
+            "show": false
+          },
+          "axisLabel": {
+            "color": "#000000",
+            "inside": true,
+            "show": true
+          },
+          "nameLocation": "start"
+        }
+      ],
+      "series": [
+        {
+          "type": "bar",
+          "data": [],
+          "label": {
+            "show": false,
+            "formatter": "{c}",
+            "position": "right",
+            "distance": 0
+          },
+          "itemStyle": {
+            "color": {
+              "type": "linear",
+              "x": 0,
+              "y": 0,
+              "x2": 1,
+              "y2": 0,
+              "colorStops": [
+                {
+                  "offset": 0,
+                  "color": "#008D8E"
+                },
+                {
+                  "offset": 1,
+                  "color": "#24C1C3"
+                }
+              ],
+              "global": false
+            },
+            "borderRadius": 4
+          }
+        }
+      ]
+    }
+  }
+]

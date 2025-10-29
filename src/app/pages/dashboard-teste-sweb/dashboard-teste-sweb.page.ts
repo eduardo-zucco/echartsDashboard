@@ -33,7 +33,7 @@ import {
 } from 'ionicons/icons';
 
 import * as echarts from 'echarts/core';
-import { BarChart, FunnelChart, PieChart, TreemapChart } from 'echarts/charts';
+import { BarChart, FunnelChart, LineChart, PieChart, TreemapChart } from 'echarts/charts';
 import {
   GridComponent,
   LegendComponent,
@@ -42,7 +42,6 @@ import {
   TooltipComponent,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
-
 
 echarts.use([
   BarChart,
@@ -55,8 +54,8 @@ echarts.use([
   TitleComponent,
   ToolboxComponent,
   TreemapChart,
+  LineChart,
 ]);
-
 
 interface KPICard {
   title: string;
@@ -65,6 +64,10 @@ interface KPICard {
   trend?: number;
   icon: string;
   color: string;
+}
+interface BuilderJson {
+  all: number;
+  charts: Record<string, number>;
 }
 
 @Component({
@@ -93,13 +96,18 @@ interface KPICard {
   ],
 })
 export class DashboardTesteSwebPage implements OnInit {
-
   optionSpend!: EChartsCoreOption;
   optionSavings!: EChartsCoreOption;
   optionContract!: EChartsCoreOption;
   optionMaverick!: EChartsCoreOption;
   optionConcentration!: EChartsCoreOption;
+  optionRankingClientes!: EChartsCoreOption;
+  optionCurvaABC!: EChartsCoreOption;
+  optionTeste!: EChartsCoreOption;
+  option!: EChartsCoreOption;
+  optionHorizontalBar!: EChartsCoreOption;
 
+  clientesXFaturamento!: EChartsCoreOption;
   kpiCards: KPICard[] = [];
 
   spendData = [
@@ -169,6 +177,19 @@ export class DashboardTesteSwebPage implements OnInit {
   ngOnInit() {
     this.initializeKPIs();
     this.initializeCharts();
+
+  }
+
+  chartInstances: { [key: string]: any } = {};
+
+  onChartInit(chartInstance: any, id: string) {
+    this.chartInstances[id] = chartInstance;
+
+    // Redimensiona o gráfico para o tamanho da tela
+    chartInstance.resize();
+
+    // Redimensiona automaticamente ao mudar a tela
+    window.addEventListener('resize', () => chartInstance.resize());
   }
 
   initializeKPIs() {
@@ -242,62 +263,387 @@ export class DashboardTesteSwebPage implements OnInit {
   }
 
   initializeCharts() {
+    const data = [18203, 23489, 29034, 104970, 131744, 630230];
+    this.clientesXFaturamento = {
+      title: {
+        text: "Ranking de clientes por faturamento",
+        show: true,
+
+      },
+      tooltip: {
+        trigger: "axis",
+        show: true,
+        axisPointer: {
+          type: "none"
+        }
+      },
+      legend: { show: false },
+      grid: { containLabel: true },
+      xAxis: {
+        type: "value",
+        show: true,
+
+        axisLine: {
+          show: false
+        },
+
+        z: 2,
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          formatter: "{value}",
+
+          inside: false,
+          show: true,
+          interval: 0,
+           rotate: 45
+        },
+        boundaryGap: [0, 0.01]
+      },
+      yAxis: [{
+        type: "category",
+        data: ['cliente A', 'cliente B', 'cliente C', 'cliente D', 'cliente E', 'cliente F'],
+        show: true,
+        position: "left",
+        axisLine: {
+          show: false
+        },
+        z: 3,
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+
+          inside: true,
+          color: "#000000",
+          show: true
+        },
+        nameLocation: "start"
+      },
+      ],
+      series: [
+        {
+
+          type: "bar",
+          data: data,
+          label: {
+            show: false,
+            formatter: "{c}",
+            position: "right",
+            distance: 0
+          },
+
+          itemStyle: {
+            color: {
+              type: "linear",
+              x: 0,
+              y: 0,
+              x2: 1,
+              y2: 0,
+              colorStops: [
+                {
+                  offset: 0,
+                  color: "#008D8E"
+                },
+                {
+                  offset: 1,
+                  color: "#24C1C3"
+                }
+              ],
+              global: false
+            },
+            borderRadius: 4,
+
+          }
+        }
+      ]
+    }
+
+    const seriesData: number[] = [1, 1, 2, ];
+
+    this.optionHorizontalBar = {
+      color: ['#3398DB'],
+      grid: { containLabel: true },
+      yAxis: [
+        {
+          type: 'category',
+          data: [
+            'logisdtoajfsdg',
+            'jkdgfçdfklh]fgj',
+            'sjkdhfg~lçdfkh]~lçjg]fghkhjdgfhkdjklildswyufkjlsfdghjdbflgdbk',
+          ]
+        },
+        {
+          type: 'category',
+          data: seriesData,
+          axisLine: { show: false },
+          axisTick: { show: false }
+        }
+      ],
+      xAxis: [
+        {
+          type: 'value',
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          type: 'bar',
+          data: seriesData
+        }
+      ]
+    }
+
+    const builderJson: BuilderJson = {
+      all: 100,
+      charts: {
+        pie: 1,
+        scatter: 1,
+        candlestick: 1,
+        radar: 2,
+        heatmap: 3,
+        treemap: 6,
+        graph: 7,
+        boxplot: 7,
+        parallel: 8,
+        gauge: 9,
+        funnel: 15,
+        sankey: 30
+      }
+    };
+
+    this.option = {
+      xAxis: [
+        {
+          type: 'value',
+          max: builderJson.all,
+          axisLabel: { show: false },
+          splitLine: { show: false }
+        }
+      ],
+      yAxis: [
+        {
+          data: Object.keys(builderJson.charts),
+          axisLabel: { show: false },
+          splitLine: { show: false },
+          axisLine: { show: false },
+          axisTick: { show: false }
+        }
+      ],
+      series: [
+        {
+          type: 'bar',
+          stack: 'chart',
+          barCategoryGap: 30,
+          barWidth: 20,
+          label: {
+            position: [0, -14],
+            formatter: '{b}',
+            show: true
+          },
+          itemStyle: {
+            borderRadius: [0, 2, 2, 0]
+          },
+          data: Object.keys(builderJson.charts).map(key => builderJson.charts[key])
+        },
+        {
+          type: 'bar',
+          stack: 'chart',
+          barCategoryGap: 30,
+          barWidth: 20,
+          itemStyle: { color: 'whitesmoke' },
+          label: {
+            position: 'insideRight',
+            formatter: (params: any) => `${100 - params.value}%`,
+            show: true
+          },
+          data: Object.keys(builderJson.charts).map(
+            key => builderJson.all - builderJson.charts[key]
+          )
+        }
+      ]
+    };
+
+
+
     const textColor = '#ffffff';
     const axisColor = '#666666';
 
-    this.optionConcentration = {
-      title: {
-        text: 'Risco de Concentração',
-        left: 'center',
-        textStyle: {
-          color: textColor,
-          fontSize: 18,
-          fontWeight: 'bold',
-        },
-      },
+
+    type DataPoint = [number, number];
+
+    // Dados da "Classe A" (0% a 80% do valor)
+    // 3. 'dataA' agora é explicitamente um array de DataPoint
+    const dataA: DataPoint[] = [
+      [0, 0],
+      [10, 60],
+      [20, 80] // Atingiu o limite de 80%
+    ];
+
+    // Dados da "Classe B" (80% a 95% do valor)
+    const dataB: DataPoint[] = [
+      [20, 80], // Ponto de conexão
+      [30, 88],
+      [40, 92],
+      [50, 95] // Atingiu o limite de 95%
+    ];
+
+    // Dados da "Classe C" (95% a 100% do valor)
+    const dataC: DataPoint[] = [
+      [50, 95], // Ponto de conexão
+      [60, 97],
+      [70, 98],
+      [80, 99],
+      [90, 99.5],
+      [100, 100]
+    ];
+
+    // Estilo de linha comum para todas as séries
+    // 4. 'commonLineStyle' também recebe um tipo explícito
+    const commonLineStyle: { color: string; width: number } = {
+      color: '#000',
+      width: 3
+    };
+
+    this.optionTeste = {
       tooltip: {
-        trigger: 'item',
-        formatter: '{b}: R$ {c} ({d}%)',
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        borderColor: '#333',
-        textStyle: { color: '#fff' },
+        trigger: 'axis',
+        formatter: (params: any) => { // 6. 'params' tipado como 'any'
+          // Tooltip personalizado para mostrar apenas um valor
+          const point = params[0]; // Pega o primeiro ponto (todos são iguais)
+          return `Itens: <b>${point.axisValue}%</b><br/>Valor Acumulado: <b>${point.data[1]}%</b>`;
+        }
       },
-      legend: {
-        bottom: 10,
-        left: 'center',
-        data: this.concentrationData.map((d) => d.name),
-        textStyle: { color: textColor },
+
+      // Eixo X (Percentual de Itens)
+      xAxis: {
+        type: 'value',
+        min: 0,
+        max: 100,
+        axisLabel: {
+          formatter: '{value}%'
+        }
       },
+
+      // Eixo Y (Percentual de Valor Acumulado)
+      yAxis: {
+        type: 'value',
+        min: 0,
+        max: 100,
+        axisLabel: {
+          formatter: '{value}%'
+        }
+      },
+
       series: [
         {
-          name: 'Spend Total',
-          type: 'pie',
-          radius: ['50%', '75%'],
-          avoidLabelOverlap: false,
-          itemStyle: {
-            borderRadius: 8,
-            borderColor: '#1e1e1e',
-            borderWidth: 2,
-          },
-          label: {
-            show: true,
-            position: 'outside',
-            formatter: '{d}%',
-            color: textColor,
-          },
-          emphasis: {
-            label: { show: true, fontSize: 16, fontWeight: 'bold' },
-            itemStyle: {
-              shadowBlur: 10,
-              shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.5)',
-            },
-          },
-          labelLine: { show: true, lineStyle: { color: axisColor } },
-          data: this.concentrationData,
+          name: 'Classe A',
+          type: 'line',
+          smooth: true,
+          showSymbol: false,
+          data: dataA, // O TS sabe que isso é DataPoint[]
+          lineStyle: commonLineStyle,
+          areaStyle: {
+            color: 'rgba(211, 47, 47, 0.7)' // Vermelho
+          }
         },
-      ],
+        {
+          name: 'Classe B',
+          type: 'line',
+          smooth: true,
+          showSymbol: false,
+          data: dataB, // O TS sabe que isso é DataPoint[]
+          lineStyle: commonLineStyle,
+          areaStyle: {
+            color: 'rgba(25, 118, 210, 0.7)' // Azul
+          }
+        },
+        {
+          name: 'Classe C',
+          type: 'line',
+          smooth: true,
+          showSymbol: false,
+          data: dataC, // O TS sabe que isso é DataPoint[]
+          lineStyle: commonLineStyle,
+          areaStyle: {
+            color: 'rgba(245, 124, 0, 0.7)' // Laranja
+          }
+        }
+      ]
     };
+
+
+
+
+    // this.optionConcentration = {
+    //   title: {
+    //     text: 'Risco de Concentração',
+    //     left: 'center',
+    //     textStyle: {
+    //       color: textColor,
+    //       fontSize: 18,
+    //       fontWeight: 'bold',
+    //     },
+    //   },
+    //   tooltip: {
+    //     trigger: 'item',
+    //     formatter: '{b}: R$ {c} ({d}%)',
+    //     backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    //     borderColor: '#333',
+    //     textStyle: { color: '#fff' },
+    //   },
+    //   legend: {
+    //     bottom: 10,
+    //     left: 'center',
+    //     data: this.concentrationData.map((d) => d.name),
+    //     textStyle: { color: textColor },
+    //   },
+    //   series: [
+    //     {
+    //       name: 'Spend Total',
+    //       type: 'pie',
+    //       radius: ['50%', '75%'],
+    //       avoidLabelOverlap: false,
+    //       itemStyle: {
+    //         // borderRadius: 8,
+    //         borderColor: '#1e1e1e',
+    //         borderWidth: 2,
+    //       },
+    //       label: {
+    //         show: true,
+    //         position: 'outside',
+    //         formatter: '{d}%',
+    //         color: textColor,
+    //       },
+    //       emphasis: {
+    //         label: { show: true, fontSize: 16, fontWeight: 'bold' },
+    //         itemStyle: {
+    //           shadowBlur: 10,
+    //           shadowOffsetX: 0,
+    //           shadowColor: 'rgba(0, 0, 0, 0.5)',
+    //         },
+    //       },
+    //       labelLine: { show: true, lineStyle: { color: axisColor } },
+    //       data: this.concentrationData,
+    //     },
+    //   ],
+    //   media: [
+    //     {
+    //       query: { maxWidth: 768 },
+    //       option: {
+    //         legend: { orient: 'vertical', bottom: 0, left: 'center' },
+    //         series: [
+    //           {
+    //             radius: ['30%', '50%'],
+    //             center: ['50%', '40%'],
+    //             label: { show: false },
+    //           },
+    //         ],
+    //       },
+    //     },
+    //   ],
+    // };
 
     this.optionMaverick = {
       title: {
@@ -318,12 +664,6 @@ export class DashboardTesteSwebPage implements OnInit {
         textStyle: { color: '#fff' },
         formatter: '{b}: R$ {c}',
       },
-      grid: {
-        left: '15%',
-        right: '10%',
-        bottom: '15%',
-        top: '20%',
-      },
       xAxis: {
         type: 'value',
         name: 'Valor (R$)',
@@ -339,7 +679,7 @@ export class DashboardTesteSwebPage implements OnInit {
         data: this.maverickData.map((d) => d.centroCusto),
         axisLabel: { color: textColor },
         axisLine: { lineStyle: { color: axisColor } },
-        inverse: true,
+        inverse: false,
       },
       series: [
         {
@@ -357,6 +697,163 @@ export class DashboardTesteSwebPage implements OnInit {
             formatter: 'R$ {c}',
             color: textColor,
           },
+        },
+      ],
+      media: [
+        {
+          query: { maxWidth: 668 },
+          option: {
+            series: [
+              {
+                radius: ['30%', '50%'],
+                center: ['50%', '40%'],
+                label: { show: false },
+              },
+            ],
+          },
+        },
+      ],
+    };
+
+    const mock = {
+      classeA: [
+        { percentualItens: 0, percentualValor: 0 },
+        { percentualItens: 10, percentualValor: 60 },
+        { percentualItens: 20, percentualValor: 80 }
+      ],
+      classeB: [
+        { percentualItens: 20, percentualValor: 80 },
+        { percentualItens: 30, percentualValor: 88 },
+        { percentualItens: 40, percentualValor: 92 },
+        { percentualItens: 50, percentualValor: 95 }
+      ],
+      classeC: [
+        { percentualItens: 50, percentualValor: 95 },
+        { percentualItens: 60, percentualValor: 97 },
+        { percentualItens: 70, percentualValor: 98 },
+        { percentualItens: 80, percentualValor: 99 },
+        { percentualItens: 90, percentualValor: 99.5 },
+        { percentualItens: 100, percentualValor: 100 }
+      ]
+    };
+
+    // Exemplo: Curva ABC de Clientes — KPI 10
+    this.optionCurvaABC = {
+      title: { "text": "Curva ABC - Distribuição de Valor" },
+      tooltip: {
+        trigger: 'axis',
+        formatter: (params: any) => {
+          const point = params[0];
+          return `Clientes: <b>${point.axisValue}%</b><br/>Valor acumulado: <b>${point.data[1]}%</b>`;
+        }
+
+      },
+      legend: {
+        top: 'bottom',
+        left: 'center',
+        textStyle: {
+          color: textColor
+        }
+      },
+      xAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%' } },
+      yAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%' } },
+      series: [
+        {
+          name: 'Classe A',
+          type: 'line',
+          smooth: true,
+          showSymbol: false,
+          data: mock.classeA.map(p => [p.percentualItens, p.percentualValor]),
+          lineStyle: { color: '#000', width: 3 },
+          areaStyle: { color: 'rgba(211, 47, 47, 0.7)' },
+          itemStyle: {
+            color: 'rgba(211, 47, 47, 0.7)'
+          }
+        },
+        {
+          name: 'Classe B',
+          type: 'line',
+          smooth: true,
+          showSymbol: false,
+          data: mock.classeB.map(p => [p.percentualItens, p.percentualValor]),
+          lineStyle: { color: '#000', width: 3 },
+          areaStyle: { color: 'rgba(25, 118, 210, 0.7)' },
+          itemStyle: {
+            color: 'rgba(25, 118, 210, 0.7)'
+          }
+        },
+        {
+          name: 'Classe C',
+          type: 'line',
+          smooth: true,
+          showSymbol: false,
+          data: mock.classeC.map(p => [p.percentualItens, p.percentualValor]),
+          lineStyle: { color: '#000', width: 3 },
+          areaStyle: { color: 'rgba(245, 124, 0, 0.7)' },
+          itemStyle: {
+            color: 'rgba(245, 124, 0, 0.7)'
+          }
+        }
+      ]
+
+    };
+
+
+
+    this.optionRankingClientes = {
+      title: {
+        text: 'Gastos Dissidentes',
+        left: 'center',
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        borderColor: '#333',
+        textStyle: { color: '#fff' },
+        formatter: '{b}: R$ {c}',
+      },
+      xAxis: {
+        type: 'category',
+        data: [
+          'Cliente A',
+          'Cliente B',
+          'Cliente C',
+          'Cliente D',
+          'Cliente E',
+          'Cliente F',
+          'Cliente G',
+          'Cliente H',
+          'Cliente I',
+          'Cliente J',
+          'Cliente K',
+          'Cliente L',
+          'Cliente M',
+          'Cliente N',
+          'Cliente O',
+          'Cliente P',
+          'Cliente Q',
+          'Cliente R',
+          'Cliente S',
+          'Cliente T',
+          'Cliente U',
+          'Cliente V',
+          'Cliente W',
+          'Cliente X',
+          'Cliente Y',
+        ],
+      },
+      yAxis: {
+        type: 'value',
+      },
+      series: [
+        {
+          data: [
+            12500, 9800, 15600, 8700, 19300, 22100, 13400, 8900, 14300, 17100,
+            11600, 9700, 15200, 19900, 17800, 12300, 9100, 8400, 16500, 14800,
+            10900, 9400, 13200, 18000, 15700,
+          ],
+          type: 'bar',
         },
       ],
     };
