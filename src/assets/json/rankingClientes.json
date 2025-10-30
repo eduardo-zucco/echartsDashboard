@@ -20,7 +20,11 @@
         "show": false
       },
       "grid": {
-        "containLabel": true
+        "left": "5%",
+        "right": "8%",
+        "bottom": "10%",
+        "top": "15%",
+        "containLabel": false
       },
       "xAxis": {
         "type": "value",
@@ -46,6 +50,7 @@
           "type": "category",
           "data": [],
           "show": true,
+          "inverse": true,
           "position": "left",
           "axisLine": {
             "show": false
