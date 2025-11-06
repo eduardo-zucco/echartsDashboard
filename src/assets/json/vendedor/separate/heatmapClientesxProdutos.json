@@ -1,0 +1,112 @@
+[
+  {
+    "id": "heatmapClientesProdutos",
+    "title": "Heatmap: Clientes x Produtos",
+    "type": "heatmap",
+    "endpoint": "vendedor/heatmap-produtos-cliente",
+    "option": {
+      "title": {
+        "text": "Heatmap: Clientes x Produtos",
+        "left": "center"
+      },
+      "tooltip": {
+        "position": "top",
+        "zlevel": 2,
+        "z": 9999,
+        "appendToBody": true
+
+      },
+      "grid": {
+        "height": "65%",
+        "top": "10%",
+        "left": "10%",
+        "right": "10%",
+        "bottom": "18%",
+        "containLabel": true
+      },
+      "xAxis": {
+        "type": "category",
+        "data": [],
+        "splitArea": { "show": true },
+        "axisLabel": {
+          "rotate": 30,
+          "interval": 0
+        }
+      },
+      "yAxis": {
+        "type": "category",
+        "data": [],
+        "splitArea": { "show": true },
+        "axisLabel": {
+          "interval": 0
+        }
+      },
+      "visualMap": {
+        "calculable": true,
+        "orient": "horizontal",
+        "left": "center",
+        "bottom": "5%",
+        "itemWidth": 20,
+        "itemHeight": 120,
+        "textStyle": { "fontSize": 11 },
+        "inRange": {
+          "color": ["#FFFFE0", "#FFA500", "#FF0000"]
+        }
+      },
+      "series": [
+        {
+          "name": "Vendas por Cliente/Produto",
+          "type": "heatmap",
+          "data": [],
+          "label": { "show": true },
+          "emphasis": {
+            "itemStyle": {
+              "shadowBlur": 10,
+              "shadowColor": "rgba(0, 0, 0, 0.5)"
+            }
+          }
+        }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 600 },
+          "option": {
+            "title": {
+              "bottom": "92%",
+              "text": "Heatmap: Clientes x Produtos",
+              "left": "center",
+              "textStyle": { "fontSize": 14 }
+            },
+            "xAxis": {
+              "type": "category",
+              "splitArea": { "show": true },
+              "axisLabel": {
+                "rotate": 45,
+                "width": 75,
+                "overflow": "truncate",
+                "ellipsis": "..."
+              }
+            },
+            "yAxis": {
+              "type": "category",
+              "splitArea": { "show": true },
+              "axisLabel": {
+                "rotate": 45,
+                "width": 65,
+                "overflow": "truncate",
+                "ellipsis": "..."
+              }
+            },
+            "grid": {
+              "height": "70%",
+              "top": "10%",
+              "left": "0%",
+              "right": "5%",
+              "bottom": "15%"
+            }
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,5 +1,11 @@
 .demo-chart {
   width: 100%;
-  height: 400px; /* defina altura fixa pra começar */
+  height: 400px;
   display: block;
+  overflow: visible !important;
+}
+ion-card {
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
 }

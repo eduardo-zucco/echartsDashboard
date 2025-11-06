@@ -1,0 +1,12 @@
+{
+  "id": "kpi-ticket-medio-individual",
+  "endpoint": "dashboard/kpi/ticket-medio-individual",
+  "title": "Ticket Médio",
+  "infoText": "média de vendas",
+  "icon": "analytics-outline",
+  "iconColor": "#00e4ff",
+  "iconBg": "#e6fcff",
+  "background": "#00b9a3",
+  "hoverBackground": "#008272",
+  "canShow": true
+}

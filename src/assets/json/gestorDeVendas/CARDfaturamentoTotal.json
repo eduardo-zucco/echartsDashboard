@@ -1,0 +1,12 @@
+{
+  "id": "kpi-faturamento-total",
+  "endpoint": "gestor-de-vendas/faturamento-total",
+  "title": "Faturamento Total",
+  "infoText": "Volume Total de Vendas",
+  "icon": "cash-outline",
+  "iconColor": "#1e5a8e",
+  "iconBg": "#e3f2fd",
+  "background": "#3498db",
+  "hoverBackground": "#2980b9",
+  "canShow": true
+}

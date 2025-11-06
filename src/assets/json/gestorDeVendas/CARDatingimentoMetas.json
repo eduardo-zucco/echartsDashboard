@@ -1,0 +1,12 @@
+{
+  "id": "kpi-taxa-meta-atingimento",
+  "endpoint": "vendedor/taxa-meta",
+  "title": "Atingimento de Metas de Faturamento",
+  "infoText": "Percentual da Meta Alcançada",
+  "icon": "trophy-outline",
+  "iconColor": "#311b92",
+  "iconBg": "#ede7f6",
+  "background": "#5351d2",
+  "hoverBackground": "#3d3ba8",
+  "canShow": true
+}

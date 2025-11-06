@@ -1,0 +1,51 @@
+[
+  {
+    "id": "kpi-faturamento-individual",
+    "endpoint": "vendedor/faturamento-individual",
+    "title": "Faturamento Individual",
+    "infoText": "Receita Total no Período",
+    "icon": "cash-outline",
+    "iconColor": "#1e5a8e",
+    "iconBg": "#e3f2fd",
+    "background": "#3498db",
+    "hoverBackground": "#2980b9",
+    "canShow": true
+  },
+  {
+    "id": "kpi-taxa-conversao-orcamento",
+    "endpoint": "vendedor/taxa-conversao",
+    "title": "Taxa de Conversão",
+    "infoText": "Pedidos Convertidos",
+    "route": "reports/sales/conversion-rate",
+    "icon": "git-merge-outline",
+    "iconColor": "#311b92",
+    "iconBg": "#ede7f6",
+    "background": "#5351d2",
+    "hoverBackground": "#3d3ba8",
+    "canShow": true
+  },
+  {
+    "id": "kpi-vendas-fechadas",
+    "endpoint": "vendedor/numero-vendas-fechadas",
+    "title": "Vendas Fechadas",
+    "infoText": "Total de Vendas Fechadas",
+    "icon": "checkmark-done-circle-outline",
+    "iconColor": "#4a148c",
+    "iconBg": "#f3e5f5",
+    "background": "#9575CD",
+    "hoverBackground": "#7e57c2",
+    "canShow": true
+  },
+  {
+    "id": "kpi-ticket-medio-individual",
+    "endpoint": "vendedor/ticket-medio-individual",
+    "title": "Ticket Médio",
+    "infoText": "Média de Vendas",
+    "icon": "analytics-outline",
+    "iconColor": "#00695c",
+    "iconBg": "#e0f2f1",
+    "background": "#00b9a3",
+    "hoverBackground": "#009688",
+    "canShow": true
+  }
+]

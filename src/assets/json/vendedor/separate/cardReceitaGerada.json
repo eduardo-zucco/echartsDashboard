@@ -1,0 +1,13 @@
+{
+  "id": "kpi-faturamento-individual",
+  "endpoint": "dashboard/kpi/faturamento-individual",
+  "title": "Faturamento Individual",
+  "infoText": "receita total no período",
+  "icon": "cash-outline",
+  "iconColor": "#1c803a",
+  "iconBg": "#dbf5e3",
+  "background": "#68e68d",
+  "hoverBackground": "#45995e",
+  "canShow": true
+}
+

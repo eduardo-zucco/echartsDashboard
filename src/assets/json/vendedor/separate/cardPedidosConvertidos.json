@@ -1,0 +1,13 @@
+{
+  "id": "kpi-taxa-conversao-orcamento",
+  "endpoint": "dashboard/kpi/taxa-conversao-orcamento",
+  "title": "Taxa de Conversão",
+  "infoText": "pedidos convertidos",
+  "route": "reports/sales/conversion-rate",
+  "icon": "git-merge-outline",
+  "iconColor": "#e054ff",
+  "iconBg": "#fceeff",
+  "background": "#c800ff",
+  "hoverBackground": "#8c00b3",
+  "canShow": true
+}

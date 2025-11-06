@@ -84,6 +84,18 @@
             "color": "rgba(245, 124, 0, 0.7)"
           }
         }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": {
+            "title": {
+              "textStyle": {
+                "fontSize": 14
+              }
+            }
+          }
+        }
       ]
     }
   }

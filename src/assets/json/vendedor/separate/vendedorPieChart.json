@@ -17,7 +17,7 @@
           "data": [],
           "radius": ["40%", "60%"],
           "center": ["50%", "50%"],
-          "label": { "show": true, "position": "outside", "formatter": "{d}%" }
+          "label": { "show": true,  "formatter": "{d}%" }
         }
       ],
       "media": [

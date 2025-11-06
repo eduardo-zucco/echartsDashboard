@@ -1,0 +1,12 @@
+{
+  "id": "kpi-vendas-fechadas",
+  "endpoint": "dashboard/kpi/vendas-fechadas",
+  "title": "Vendas Fechadas",
+  "infoText": "quantidade de vendas fechadas em R$ (total)",
+  "icon": "checkmark-done-circle-outline",
+  "iconColor": "#b7c900",
+  "iconBg": "#f8fae6",
+  "background": "#d1b614",
+  "hoverBackground": "#927f0e",
+  "canShow": true
+}

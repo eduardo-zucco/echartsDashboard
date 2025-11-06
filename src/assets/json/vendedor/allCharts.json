@@ -1,0 +1,580 @@
+[
+  {
+    "id": "curvaABC",
+    "title": "Curva ABC - Distribuição de Valor",
+    "type": "pareto",
+    "endpoint": "vendedor/clientes-faturamento",
+    "option": {
+      "title": {
+        "text": "Curva ABC - Distribuição de Valor",
+        "textStyle": {
+          "fontSize": 15
+        }
+      },
+      "tooltip": {
+        "trigger": "axis"
+      },
+      "legend": {
+        "top": "bottom",
+        "left": "center",
+        "textStyle": {
+          "color": "#9da1a6"
+        }
+      },
+      "xAxis": {
+        "type": "value",
+        "max": 100,
+        "axisLabel": {
+          "formatter": "{value}%"
+        }
+      },
+      "yAxis": {
+        "type": "value",
+        "max": 100,
+        "axisLabel": {
+          "formatter": "{value}%"
+        }
+      },
+      "series": [
+        {
+          "name": "Classe A",
+          "type": "line",
+          "smooth": true,
+          "showSymbol": false,
+          "data": [],
+          "lineStyle": {
+            "color": "#000",
+            "width": 3
+          },
+          "areaStyle": {
+            "color": "#F8343E"
+          },
+          "itemStyle": {
+            "color": "#F8343E"
+          }
+        },
+        {
+          "name": "Classe B",
+          "type": "line",
+          "smooth": true,
+          "showSymbol": false,
+          "data": [],
+          "lineStyle": {
+            "color": "#000",
+            "width": 3
+          },
+          "areaStyle": {
+            "color": "#3EB768"
+          },
+          "itemStyle": {
+            "color": "#3EB768"
+          }
+        },
+        {
+          "name": "Classe C",
+          "type": "line",
+          "smooth": true,
+          "showSymbol": false,
+          "data": [],
+          "lineStyle": {
+            "color": "#000",
+            "width": 3
+          },
+          "areaStyle": {
+            "color": "#1c8cc9"
+          },
+          "itemStyle": {
+            "color": "#1c8cc9"
+          }
+        }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": {
+            "title": {
+              "textStyle": {
+                "fontSize": 14
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "rankingClientesCustom",
+    "title": "Ranking de clientes por faturamento",
+    "type": "horizontalBar",
+    "endpoint": "vendedor/ranking-clientes-faturamento",
+    "option": {
+      "title": {
+        "text": "Ranking de clientes por faturamento",
+        "show": true,
+        "textStyle": {
+          "fontSize": 15
+        }
+      },
+      "tooltip": {
+        "trigger": "axis",
+        "show": true,
+        "appendToBody": true,
+        "axisPointer": {
+          "type": "shadow"
+        }
+      },
+      "legend": {
+        "show": false
+      },
+      "grid": {
+        "left": "5%",
+        "right": "8%",
+        "bottom": "10%",
+        "top": "15%",
+        "containLabel": false
+      },
+      "xAxis": {
+        "type": "value",
+        "show": true,
+        "axisLine": {
+          "show": false
+        },
+        "z": 2,
+        "axisTick": {
+          "show": false
+        },
+        "axisLabel": {
+          "formatter": "{value}",
+          "inside": false,
+          "show": true,
+          "interval": 0,
+          "rotate": 45
+        },
+        "boundaryGap": [0, 0.01]
+      },
+      "yAxis": [
+        {
+          "type": "category",
+          "data": [],
+          "show": true,
+          "inverse": true,
+          "position": "left",
+          "axisLine": {
+            "show": false
+          },
+          "z": 3,
+          "axisTick": {
+            "show": false
+          },
+          "axisLabel": {
+            "color": "#000000",
+            "inside": true,
+            "show": true
+          },
+          "nameLocation": "start"
+        }
+      ],
+      "series": [
+        {
+          "type": "bar",
+          "data": [],
+          "label": {
+            "show": false,
+            "formatter": "{c}",
+            "position": "right",
+            "distance": 0
+          },
+          "itemStyle": {
+            "color": {
+              "type": "linear",
+              "x": 0,
+              "y": 0,
+              "x2": 1,
+              "y2": 0,
+              "colorStops": [
+                {
+                  "offset": 0,
+                  "color": "#245570"
+                },
+                {
+                  "offset": 1,
+                  "color": "#3C8DB9"
+                }
+              ],
+              "global": false
+            },
+            "borderRadius": 4
+          }
+        }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": {
+            "title": {
+              "textStyle": {
+                "fontSize": 14
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "heatmapClientesProdutos",
+    "title": "Heatmap: Clientes x Produtos",
+    "type": "heatmap",
+    "endpoint": "vendedor/heatmap-produtos-cliente",
+    "option": {
+      "title": {
+        "bottom": "92%",
+        "text": "Heatmap: Clientes x Produtos",
+        "left": "center",
+        "textStyle": {
+          "fontSize": 15
+        }
+      },
+      "tooltip": {
+        "position": "top",
+        "zlevel": 2,
+        "z": 9999,
+        "appendToBody": true,
+        "formatter": "{b0}: {c0}"
+      },
+      "grid": {
+        "height": "65%",
+        "top": "10%",
+        "left": "10%",
+        "right": "10%",
+        "bottom": "18%",
+        "containLabel": true
+      },
+      "xAxis": {
+        "type": "category",
+        "data": [],
+        "splitArea": {
+          "show": true
+        },
+        "axisLabel": {
+          "rotate": 30,
+          "interval": 0
+        }
+      },
+      "yAxis": {
+        "type": "category",
+        "data": [],
+        "splitArea": {
+          "show": true
+        },
+        "axisLabel": {
+          "interval": 0
+        }
+      },
+      "visualMap": {
+        "calculable": true,
+        "orient": "horizontal",
+        "left": "center",
+        "bottom": "5%",
+        "itemWidth": 20,
+        "itemHeight": 120,
+        "textStyle": {
+          "fontSize": 11
+        },
+        "inRange": {
+          "color": [
+            "#E3F2FD",
+            "#BBDEFB",
+            "#90CAF9",
+            "#64B5F6",
+            "#5E35B1",
+            "#4527A0"
+          ]
+        }
+      },
+      "series": [
+        {
+          "name": "Vendas por Cliente/Produto",
+          "type": "heatmap",
+          "data": [],
+          "label": {
+            "show": true
+          },
+          "emphasis": {
+            "itemStyle": {
+              "shadowBlur": 10,
+              "shadowColor": "rgba(0, 0, 0, 0.5)"
+            }
+          }
+        }
+      ],
+      "media": [
+        {
+          "query": {
+            "maxWidth": 668
+          },
+          "option": {
+            "title": {
+              "bottom": "92%",
+              "text": "Heatmap: Clientes x Produtos",
+              "left": "center",
+              "textStyle": {
+                "fontSize": 14
+              }
+            },
+            "xAxis": {
+              "type": "category",
+              "splitArea": {
+                "show": true
+              },
+              "axisLabel": {
+                "rotate": 45,
+                "width": 75,
+                "overflow": "truncate",
+                "ellipsis": "..."
+              }
+            },
+            "yAxis": {
+              "type": "category",
+              "splitArea": {
+                "show": true
+              },
+              "axisLabel": {
+                "rotate": 45,
+                "width": 65,
+                "overflow": "truncate",
+                "ellipsis": "..."
+              }
+            },
+            "grid": {
+              "height": "70%",
+              "top": "10%",
+              "left": "0%",
+              "right": "5%",
+              "bottom": "15%"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "clientesFaturamento",
+    "title": "Participação dos Clientes",
+    "type": "pie",
+    "endpoint": "vendedor/ranking-clientes-pizza",
+    "option": {
+      "title": {
+        "text": "Participação dos Clientes no Faturamento",
+        "left": "center",
+        "textStyle": {
+          "fontSize": 15
+        }
+      },
+      "tooltip": {
+        "trigger": "item",
+        "appendToBody": true
+      },
+      "legend": {
+        "orient": "vertical",
+        "left": "left"
+      },
+      "series": [
+        {
+          "type": "pie",
+          "data": [],
+          "radius": ["40%", "60%"],
+          "center": ["50%", "50%"],
+          "label": {
+            "show": true,
+            "position": "outside",
+            "formatter": "{d}%"
+          }
+        }
+      ],
+      "media": [
+        {
+          "query": {
+            "maxWidth": 668
+          },
+          "option": {
+            "title": {
+              "text": "Participação dos Clientes no Faturamento",
+              "left": "center",
+              "textStyle": {
+                "fontSize": 14
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "comparacaoFaturamento",
+    "title": "Comparação de Faturamento",
+    "type": "stacked",
+    "endpoint": "vendedor/faturamento-mensal-comparativo",
+    "option": {
+      "title": {
+        "text": "Comparação de Faturamento",
+        "textStyle": {
+          "fontSize": 15
+        }
+      },
+      "tooltip": {
+        "trigger": "axis"
+      },
+      "legend": {},
+      "grid": {
+        "left": "3%",
+        "right": "4%",
+        "bottom": "23%"
+      },
+      "xAxis": {
+        "type": "category",
+        "boundaryGap": false,
+        "data": []
+      },
+      "yAxis": {
+        "type": "value"
+      },
+      "series": [],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": {
+            "title": {
+              "textStyle": {
+                "fontSize": 14
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "rankingProdutosPizza",
+    "title": "Produtos mais Vendidos",
+    "type": "pie",
+    "endpoint": "vendedor/ranking-produtos-pizza",
+    "option": {
+      "title": {
+        "text": "Produtos mais Vendidos",
+        "left": "center",
+        "textStyle": {
+          "fontSize": 15
+        }
+      },
+      "grid": {
+        "left": "3%",
+        "right": "4%",
+        "bottom": "23%"
+      },
+      "tooltip": {
+        "trigger": "axis"
+      },
+      "legend": {
+        "orient": "horizontal",
+        "left": "center"
+      },
+      "series": [
+        {
+          "type": "pie",
+          "data": [],
+          "radius": ["40%", "60%"],
+          "center": ["50%", "50%"],
+          "label": {
+            "show": true,
+            "position": "outside",
+            "formatter": "{d}%"
+          }
+        }
+      ],
+      "media": [
+        {
+          "query": {
+            "maxWidth": 668
+          },
+          "option": {
+            "title": {
+              "left": "center",
+              "textStyle": {
+                "fontSize": 14
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "produtosMaisVendidos",
+    "title": "Produtos mais Vendidos",
+    "type": "bar",
+    "endpoint": "vendedor/ranking-produtos-pizza?tipo=bar",
+    "option": {
+      "title": {
+        "text": "Produtos mais Vendidos",
+        "textStyle": {
+          "fontSize": 15
+        }
+      },
+      "tooltip": {
+        "trigger": "item"
+      },
+      "legend": {},
+      "grid": {
+        "left": "3%",
+        "right": "4%",
+        "bottom": "20%"
+      },
+      "xAxis": {
+        "type": "category",
+        "data": [],
+        "axisLabel": {
+          "rotate": 30,
+          "interval": 0
+        }
+      },
+      "yAxis": {
+        "type": "value"
+      },
+      "series": [
+        {
+          "name": "Vendas",
+          "data": [],
+          "type": "bar",
+          "itemStyle": {
+            "color": "#61afda"
+          },
+          "barWidth": "50%"
+        }
+      ],
+      "media": [
+        {
+          "query": {
+            "maxWidth": 668
+          },
+          "option": {
+            "title": {
+              "left": "center",
+              "textStyle": {
+                "fontSize": 14
+              }
+            },
+            "axisLabel": {
+              "rotate": 45,
+              "width": 75,
+              "overflow": "truncate",
+              "ellipsis": "..."
+            }
+          }
+        }
+      ]
+    }
+  }
+
+
+]
