@@ -2,7 +2,6 @@
   "id": "graficoGauge",
   "title": "Percentual da Meta Alcançada",
   "type": "gauge",
-  "endpoint": "gestor-vendas/atingir-meta",
   "option": {
     "title": {
       "text": "Percentual da Meta Alcançada",
@@ -17,19 +16,12 @@
           "width": 18
         },
         "axisLine": {
-          "lineStyle": {
-            "width": 18
-          }
+          "lineStyle": { "width": 18 }
         },
-        "axisTick": {
-          "show": false
-        },
+        "axisTick": { "show": false },
         "splitLine": {
           "length": 15,
-          "lineStyle": {
-            "width": 2,
-            "color": "#999"
-          }
+          "lineStyle": { "width": 2, "color": "#999" }
         },
         "axisLabel": {
           "distance": 25,
@@ -40,13 +32,9 @@
           "show": true,
           "showAbove": true,
           "size": 25,
-          "itemStyle": {
-            "borderWidth": 10
-          }
+          "itemStyle": { "borderWidth": 10 }
         },
-        "title": {
-          "show": false
-        },
+        "title": { "show": false },
         "detail": {
           "valueAnimation": true,
           "fontSize": 80,
@@ -57,8 +45,34 @@
     ],
     "media": [
       {
+        "query": { "maxWidth": 1024 },
+        "option": {
+          "title": { "textStyle": { "fontSize": 14 } },
+          "series": [
+            {
+              "detail": { "fontSize": 60, "offsetCenter": [0, "65%"] },
+              "axisLabel": { "fontSize": 16, "distance": 20 },
+              "progress": { "width": 14 },
+              "axisLine": { "lineStyle": { "width": 14 } },
+              "anchor": { "size": 18, "itemStyle": { "borderWidth": 8 } }
+            }
+          ]
+        }
+      },
+      {
         "query": { "maxWidth": 668 },
-        "option": { "title": { "textStyle": { "fontSize": 14 } } }
+        "option": {
+          "title": { "textStyle": { "fontSize": 14 } },
+          "series": [
+            {
+              "detail": { "fontSize": 45, "offsetCenter": [0, "65%"] },
+              "axisLabel": { "fontSize": 14, "distance": 18 },
+              "progress": { "width": 12 },
+              "axisLine": { "lineStyle": { "width": 12 } },
+              "anchor": { "size": 15, "itemStyle": { "borderWidth": 6 } }
+            }
+          ]
+        }
       }
     ]
   }

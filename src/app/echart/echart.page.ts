@@ -12,7 +12,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import type { EChartsCoreOption } from 'echarts/core';
 
 import * as echarts from 'echarts/core';
-import { BarChart, FunnelChart, HeatmapChart, LineChart, PieChart, TreemapChart } from 'echarts/charts';
+import { BarChart, FunnelChart, GaugeChart, HeatmapChart, LineChart, PieChart, TreemapChart } from 'echarts/charts';
 import {
   GridComponent,
   LegendComponent,
@@ -37,7 +37,8 @@ echarts.use([
   TreemapChart,
   VisualMapComponent,
   HeatmapChart,
-  LineChart
+  LineChart,
+  GaugeChart
 ]);
 
 @Component({
@@ -65,6 +66,7 @@ export class EchartPage implements OnInit {
   optionLineStacked!: EChartsCoreOption;
   optionBar!: EChartsCoreOption;
   faturamentoTotalOption!: EChartsCoreOption;
+  gaugeOptions!: EChartsCoreOption;
   constructor() { }
 
   ngOnInit(): void {
@@ -72,7 +74,84 @@ export class EchartPage implements OnInit {
     const data1 = [];
     const data2 = [];
 
-     this.faturamentoTotalOption = {
+    this.gaugeOptions = {
+
+      title: {
+        text: 'Percentual da Meta Alcançada',
+        show: true,
+        textStyle: { fontSize: 15 }
+      },
+      series: [
+        {
+          type: 'gauge',
+          progress: {
+            show: true,
+            width: 18
+          },
+          axisLine: {
+            lineStyle: { width: 18 }
+          },
+          axisTick: { show: false },
+          splitLine: {
+            length: 15,
+            lineStyle: { width: 2, color: '#999' }
+          },
+          axisLabel: {
+            distance: 25,
+            color: '#999',
+            fontSize: 20
+          },
+          anchor: {
+            show: true,
+            showAbove: true,
+            size: 25,
+            itemStyle: { borderWidth: 10 }
+          },
+          title: { show: false },
+          detail: {
+            valueAnimation: true,
+            fontSize: 50,
+            offsetCenter: [0, '70%']
+          },
+          data: [{ value: 50, name: 'Meta Alcançada'}]
+        }
+      ],
+      media: [
+
+        {
+          query: { maxWidth: 1024 },
+          option: {
+            title: { textStyle: { fontSize: 14 } },
+            series: [
+              {
+                detail: { fontSize: 60, offsetCenter: [0, '65%'] },
+                axisLabel: { fontSize: 16, distance: 20 },
+                progress: { width: 14 },
+                axisLine: { lineStyle: { width: 14 } },
+                anchor: { size: 18, itemStyle: { borderWidth: 8 } }
+              }
+            ]
+          }
+        },
+        {
+          query: { maxWidth: 668 },
+          option: {
+            title: { textStyle: { fontSize: 14 } },
+            series: [
+              {
+                detail: { fontSize: 45, offsetCenter: [0, '65%'] },
+                axisLabel: { fontSize: 14, distance: 18 },
+                progress: { width: 12 },
+                axisLine: { lineStyle: { width: 12 } },
+                anchor: { size: 15, itemStyle: { borderWidth: 6 } }
+              }
+            ]
+          }
+        }
+      ]
+    };
+
+    this.faturamentoTotalOption = {
       title: {
         text: 'Faturamento Total - Comparativo',
         textStyle: {

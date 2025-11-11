@@ -1,12 +1,10 @@
-
 {
-  "id": "taxaConversao",
-  "title": "Taxa de Conversão - Evolução",
+  "id": "faturamnentoXmeta",
+  "title": "Faturamento vs Meta",
   "type": "stacked",
   "option": {
-    "color": ["#9575CD", "#5351d2", "#3498db", "#00b9a3", "#472966", "#2E86C1", "#69dc9e"],
     "title": {
-      "text": "Taxa de Conversão - Evolução",
+      "text": "Faturamento vs Meta",
       "textStyle": {
         "fontSize": 15
       }
