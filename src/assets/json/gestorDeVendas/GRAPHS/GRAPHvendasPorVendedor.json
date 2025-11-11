@@ -1,0 +1,38 @@
+{
+  "id": "vendasPorVendedor",
+  "title": "Vendas por Vendedor",
+  "type": "bar",
+  "option": {
+    "title": {
+      "text": "Vendas por Vendedor",
+      "textStyle": { "fontSize": 15 }
+    },
+    "tooltip": { "trigger": "axis", "appendToBody": true },
+    "grid": { "left": "3%", "right": "4%", "bottom": "25%" },
+    "xAxis": {
+      "type": "category",
+      "data": [],
+      "axisLabel": { "rotate": 30, "interval": 0 }
+    },
+    "yAxis": { "type": "value" },
+    "series": [
+      { "data": [], "type": "bar", "itemStyle": { "color": "#61afda" } }
+    ],
+    "media": [
+      {
+        "query": { "maxWidth": 668 },
+        "option": {
+          "title": { "left": "center", "textStyle": { "fontSize": 14 } },
+          "xAxis": {
+            "axisLabel": {
+              "rotate": 45,
+              "width": 75,
+              "overflow": "truncate",
+              "ellipsis": "..."
+            }
+          }
+        }
+      }
+    ]
+  }
+}

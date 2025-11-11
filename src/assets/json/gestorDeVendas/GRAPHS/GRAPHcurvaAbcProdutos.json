@@ -1,0 +1,102 @@
+{
+  "id": "curvaABC",
+  "title": "Curva ABC - Produtos",
+  "type": "pareto",
+  "option": {
+    "title": {
+      "text": "Curva ABC - Produtos",
+      "textStyle": {
+        "fontSize": 15
+      }
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "top": "bottom",
+      "left": "center",
+      "textStyle": {
+        "color": "#9da1a6"
+      }
+    },
+    "xAxis": {
+      "type": "value",
+      "max": 100,
+      "axisLabel": {
+        "formatter": "{value}%"
+      }
+    },
+    "yAxis": {
+      "type": "value",
+      "max": 100,
+      "axisLabel": {
+        "formatter": "{value}%"
+      }
+    },
+    "series": [
+      {
+        "name": "Classe A",
+        "type": "line",
+        "smooth": true,
+        "showSymbol": false,
+        "data": [],
+        "lineStyle": {
+          "color": "#000",
+          "width": 3
+        },
+        "areaStyle": {
+          "color": "#F8343E"
+        },
+        "itemStyle": {
+          "color": "#F8343E"
+        }
+      },
+      {
+        "name": "Classe B",
+        "type": "line",
+        "smooth": true,
+        "showSymbol": false,
+        "data": [],
+        "lineStyle": {
+          "color": "#000",
+          "width": 3
+        },
+        "areaStyle": {
+          "color": "#3EB768"
+        },
+        "itemStyle": {
+          "color": "#3EB768"
+        }
+      },
+      {
+        "name": "Classe C",
+        "type": "line",
+        "smooth": true,
+        "showSymbol": false,
+        "data": [],
+        "lineStyle": {
+          "color": "#000",
+          "width": 3
+        },
+        "areaStyle": {
+          "color": "#1c8cc9"
+        },
+        "itemStyle": {
+          "color": "#1c8cc9"
+        }
+      }
+    ],
+    "media": [
+      {
+        "query": { "maxWidth": 668 },
+        "option": {
+          "title": {
+            "textStyle": {
+              "fontSize": 14
+            }
+          }
+        }
+      }
+    ]
+  }
+}

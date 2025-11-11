@@ -64,12 +64,75 @@ export class EchartPage implements OnInit {
   optionHeatmap!: EChartsCoreOption;
   optionLineStacked!: EChartsCoreOption;
   optionBar!: EChartsCoreOption;
+  faturamentoTotalOption!: EChartsCoreOption;
   constructor() { }
 
   ngOnInit(): void {
     const xAxisData = [];
     const data1 = [];
     const data2 = [];
+
+     this.faturamentoTotalOption = {
+      title: {
+        text: 'Faturamento Total - Comparativo',
+        textStyle: {
+          fontSize: 15
+        }
+      },
+      tooltip: {
+        trigger: 'axis',
+        appendToBody: true
+      },
+      legend: {
+        top: 'bottom',
+        left: 'center'
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '25%'
+      },
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        axisLabel: {
+          rotate: 30,
+          interval: 0
+        }
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: [150, 230, 224, 218, 135, 147, 260],
+          type: 'line'
+        }
+      ],
+      media: [
+        {
+          query: {
+            maxWidth: 668
+          },
+          option: {
+            title: {
+              left: 'center',
+              textStyle: {
+                fontSize: 14
+              }
+            },
+            xAxis: {
+              axisLabel: {
+                rotate: 45,
+                width: 75,
+                overflow: 'truncate',
+                ellipsis: '...'
+              }
+            }
+          }
+        }
+      ]
+    };
 
 
     this.optionBar = {
@@ -119,7 +182,7 @@ export class EchartPage implements OnInit {
                 fontSize: 14
               }
             },
-            axisLabel:{
+            axisLabel: {
               rotate: 45,
               width: 75,
               overflow: 'truncate',
@@ -211,7 +274,8 @@ export class EchartPage implements OnInit {
         <b>${produtos[p[0]]}</b><br/>
         Quantidade: <b>${p[2]}</b>
       `;
-        }
+        },
+        appendToBody: true
       },
       // Grid (área de plotagem)
       grid: {
@@ -343,9 +407,7 @@ export class EchartPage implements OnInit {
         zlevel: 2,
         z: 9999,
         appendToBody: true,
-        formatter: {
 
-        }
         // Formata a dica (tooltip) para mostrar os nomes
         //   formatter: (params: any): string => { // Tipando os parâmetros
         //     // 'params.value' é o array [indiceProduto, indiceCliente, Quantidade]
@@ -412,9 +474,9 @@ export class EchartPage implements OnInit {
       },
       series: [
         {
-          name: 'Vendas por Cliente/Produto', // <-- Alterado
+
           type: 'heatmap',
-          data: vendasData, // <-- Alterado (sem o .map())
+          data: vendasData,
           label: {
             show: true
           },

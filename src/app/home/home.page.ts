@@ -25,6 +25,11 @@ export class HomePage {
     this.router.navigate(['dashboard-sweb']);
   }
 
+  goToEchart2(): void {
+    this.router.navigate(['echart']);
+  }
+
+
   goToNg2(): void {
     this.router.navigate(['dashboard-ng2-charts']);
   }

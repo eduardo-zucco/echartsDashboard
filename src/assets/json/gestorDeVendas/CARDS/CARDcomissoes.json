@@ -1,0 +1,11 @@
+{
+  "id": "kpi-comissoesPorVendedor",
+  "title": "Comissões",
+  "infoText": "Total a Pagar em Comissões",
+  "icon": "person-outline",
+  "iconColor": "#3634a3",
+  "iconBg": "#eeeeff",
+  "background": "#7574db",
+  "hoverBackground": "#5a59c9",
+  "canShow": true
+}

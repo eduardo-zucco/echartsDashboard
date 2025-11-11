@@ -1,6 +1,6 @@
 {
   "id": "kpi-faturamento-total",
-  "endpoint": "gestor-de-vendas/faturamento-total",
+  "endpoint": "gestor-vendas/faturamento-total",
   "title": "Faturamento Total",
   "infoText": "Volume Total de Vendas",
   "icon": "cash-outline",

@@ -1,0 +1,89 @@
+{
+  "id": "rankingVendedor",
+  "title": "Ranking de vendedores por vendas",
+  "type": "horizontalBar",
+  "endpoint": "vendedor/ranking-vendedores",
+  "option": {
+    "title": {
+      "text": "Ranking de Vendedores por Vendas",
+      "show": true,
+      "textStyle": { "fontSize": 15 }
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "show": true,
+      "appendToBody": true,
+      "axisPointer": { "type": "shadow" }
+    },
+    "legend": { "show": false },
+    "grid": {
+      "left": "5%",
+      "right": "8%",
+      "bottom": "10%",
+      "top": "15%",
+      "containLabel": false
+    },
+    "xAxis": {
+      "type": "value",
+      "show": true,
+      "axisLine": { "show": false },
+      "z": 2,
+      "axisTick": { "show": false },
+      "axisLabel": {
+        "formatter": "{value}",
+        "inside": false,
+        "show": true,
+        "interval": 0,
+        "rotate": 45
+      },
+      "boundaryGap": [0, 0.01]
+    },
+    "yAxis": [
+      {
+        "type": "category",
+        "data": [],
+        "show": true,
+        "inverse": true,
+        "position": "left",
+        "axisLine": { "show": false },
+        "z": 3,
+        "axisTick": { "show": false },
+        "axisLabel": { "color": "#000000", "inside": true, "show": true },
+        "nameLocation": "start"
+      }
+    ],
+    "series": [
+      {
+        "type": "bar",
+        "data": [],
+        "label": {
+          "show": false,
+          "formatter": "{c}",
+          "position": "right",
+          "distance": 0
+        },
+        "itemStyle": {
+          "color": {
+            "type": "linear",
+            "x": 0,
+            "y": 0,
+            "x2": 1,
+            "y2": 0,
+            "colorStops": [
+              { "offset": 0, "color": "#3C8DB9" },
+              { "offset": 1, "color": "#245570" }
+            ],
+            "global": false
+          },
+          "borderRadius": 4
+        }
+      }
+    ],
+    "media": [
+      {
+        "query": { "maxWidth": 668 },
+        "option": { "title": { "textStyle": { "fontSize": 14 } } }
+      }
+    ]
+  }
+}

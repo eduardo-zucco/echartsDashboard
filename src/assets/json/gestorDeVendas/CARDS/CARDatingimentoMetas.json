@@ -1,6 +1,6 @@
 {
   "id": "kpi-taxa-meta-atingimento",
-  "endpoint": "vendedor/taxa-meta",
+  "endpoint": "gestor-vendas/taxa-meta",
   "title": "Atingimento de Metas de Faturamento",
   "infoText": "Percentual da Meta Alcançada",
   "icon": "trophy-outline",

@@ -1,0 +1,12 @@
+{
+  "id": "kpi-margem-bruta",
+  "endpoint": "gestor-vendas/margem-bruta",
+  "title": "Margem Bruta",
+  "infoText": "Percentual de Lucro sobre Faturamento",
+  "icon": "analytics-outline",
+  "iconColor": "#00695c",
+  "iconBg": "#e0f2f1",
+  "background": "#00b9a3",
+  "hoverBackground": "#009688",
+  "canShow": true
+}

@@ -1,0 +1,12 @@
+{
+  "id": "kpi-pedidos-em-espera",
+  "endpoint": "gestor-vendas/pedidos-em-espera",
+  "title": "Pedidos em Espera",
+  "infoText": "Pedidos Aguardando Autorização",
+  "icon": "analytics-outline",
+  "iconColor": "#2d1a42",
+  "iconBg": "#f0e6f6",
+  "background": "#472966",
+  "hoverBackground": "#341d4d",
+  "canShow": true
+}
