@@ -100,6 +100,15 @@
   <ion-card class="chart-card full-width">
     <div
       echarts
+      [options]="margemBrutaOption"
+      [autoResize]="true"
+      class="demo-chart"
+    ></div>
+  </ion-card>
+
+  <ion-card class="chart-card full-width">
+    <div
+      echarts
       [options]="optionMaverick"
       [autoResize]="true"
       class="demo-chart"

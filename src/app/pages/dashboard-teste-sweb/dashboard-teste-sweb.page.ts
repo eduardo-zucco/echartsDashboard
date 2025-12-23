@@ -30,6 +30,7 @@ import {
   documentTextOutline,
   cashOutline,
   cash,
+  text,
 } from 'ionicons/icons';
 
 import * as echarts from 'echarts/core';
@@ -42,6 +43,7 @@ import {
   TooltipComponent,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
+import { interval } from 'rxjs';
 
 echarts.use([
   BarChart,
@@ -106,6 +108,7 @@ export class DashboardTesteSwebPage implements OnInit {
   optionTeste!: EChartsCoreOption;
   option!: EChartsCoreOption;
   optionHorizontalBar!: EChartsCoreOption;
+  margemBrutaOption!: EChartsCoreOption;
 
   clientesXFaturamento!: EChartsCoreOption;
   kpiCards: KPICard[] = [];
@@ -267,7 +270,7 @@ export class DashboardTesteSwebPage implements OnInit {
 
   initializeCharts() {
     const data = [18203, 23489, 29034, 104970, 131744, 630230];
-   const produtosMaisVendidosData = {
+    const produtosMaisVendidosData = {
       produtos: [
         'Smartphone X',
         'Notebook Pro',
@@ -278,85 +281,136 @@ export class DashboardTesteSwebPage implements OnInit {
       vendas: [150, 80, 230, 120, 95].sort((a, b) => b - a),
     };
 
-
-   this.produtosMaisVendidosOption = {
-    title: {
-      text: 'Produtos Mais Vendidos',
-      show: true,
-      textStyle: { fontSize: 15 }
-    },
-    tooltip: {
-      trigger: 'axis',
-      show: true,
-      appendToBody: true,
-      axisPointer: { type: 'shadow' }
-    },
-    legend: { show: false },
-    grid: {
-      left: '5%',
-      right: '8%',
-      bottom: '10%',
-      top: '15%',
-      containLabel: false
-    },
-    xAxis: {
-      type: 'value',
-      show: true,
-      axisLine: { show: false },
-      z: 2,
-      axisTick: { show: false },
-      axisLabel: {
-        formatter: '{value}',
-        inside: false,
-        show: true,
-        interval: 0,
-        rotate: 45
+    this.margemBrutaOption = {
+      title: {
+        text: 'Margem Bruta por Mês',
+        textStyle: { fontSize: 15 }
       },
-      boundaryGap: [0, 0.01]
-    },
-    yAxis: [
-      {
+      tooltip: {
+        trigger: 'axis',
+        appendToBody: true,
+      },
+      grid: {
+        left: '5%',
+        right: '5%',
+        bottom: '10%',
+
+      },
+      xAxis: {
         type: 'category',
-        data: produtosMaisVendidosData.produtos,
+        data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        axisLabel: { rotate: 30, interval: 0 },
+
+      },
+      yAxis: {
+        type: 'value',
+      },
+      series: [
+        {
+          data: [20, 34, 25, 40, 45, 50, 30, 60, 55, 70],
+          type: 'bar',
+          itemStyle: { color: '#8dc6eb' },
+        }
+      ],
+      media: [
+        {
+          query: { maxWidth: 668 },
+          option: {
+            title: { left: 'center', textStyle: { fontSize: 14 } },
+            xAxis: {
+              axisLabel: {
+                rotate: 45,
+                width: 75,
+                overflow: 'truncate',
+                ellipsis: '...'
+              }
+            }
+          }
+        }
+      ]
+
+
+
+    };
+
+    this.produtosMaisVendidosOption = {
+      title: {
+        text: 'Produtos Mais Vendidos',
         show: true,
-        inverse: true,
-        position: 'left',
+        textStyle: { fontSize: 15 }
+      },
+      tooltip: {
+        trigger: 'axis',
+        show: true,
+        appendToBody: true,
+        axisPointer: { type: 'shadow' }
+      },
+      legend: { show: false },
+      grid: {
+        left: '5%',
+        right: '8%',
+        bottom: '10%',
+        top: '15%',
+        containLabel: false
+      },
+      xAxis: {
+        type: 'value',
+        show: true,
         axisLine: { show: false },
-        z: 3,
+        z: 2,
         axisTick: { show: false },
         axisLabel: {
-          color: '#ffffff',
-          inside: true,
-          show: true
+          formatter: '{value}',
+          inside: false,
+          show: true,
+          interval: 0,
+          rotate: 45
         },
-        nameLocation: 'start'
-      }
-    ],
-    series: [
-      {
-        type: 'bar',
-        data: produtosMaisVendidosData.vendas,
-        label: {
-          show: false,
-          formatter: '{c}',
-          position: 'right',
-          distance: 0
-        },
-        itemStyle: {
-          color: '#3991cf',
-          borderRadius: 4
+        boundaryGap: [0, 0.01]
+      },
+      yAxis: [
+        {
+          type: 'category',
+          data: produtosMaisVendidosData.produtos,
+          show: true,
+          inverse: true,
+          position: 'left',
+          axisLine: { show: false },
+          z: 3,
+          axisTick: { show: false },
+          axisLabel: {
+            color: '#ffffff',
+            inside: true,
+            show: true
+          },
+          nameLocation: 'start'
         }
-      }
-    ],
-    media: [
-      {
-        query: { maxWidth: 668 },
-        option: {
-          title: { textStyle: { fontSize: 14 } }
+      ],
+      series: [
+        {
+          type: 'bar',
+          data: produtosMaisVendidosData.vendas,
+          label: {
+            show: false,
+            formatter: '{c}',
+            position: 'right',
+            distance: 0
+          },
+          itemStyle: {
+            color: '#3991cf',
+            borderRadius: 4
+          }
         }
-      }
-    ]
-  };
+      ],
+      media: [
+        {
+          query: { maxWidth: 668 },
+          option: {
+            title: { textStyle: { fontSize: 14 } }
+          }
+        }
+      ]
+    };
     this.clientesXFaturamento = {
       title: {
         text: "Ranking de clientes por faturamento",
@@ -390,7 +444,7 @@ export class DashboardTesteSwebPage implements OnInit {
           inside: false,
           show: true,
           interval: 0,
-           rotate: 45
+          rotate: 45
         },
         boundaryGap: [0, 0.01]
       },
@@ -453,7 +507,7 @@ export class DashboardTesteSwebPage implements OnInit {
       ]
     }
 
-    const seriesData: number[] = [1, 1, 2, ];
+    const seriesData: number[] = [1, 1, 2,];
 
     this.optionHorizontalBar = {
       color: ['#3398DB'],
