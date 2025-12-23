@@ -106,6 +106,15 @@
     ></div>
   </ion-card>
 
+  <ion-card class="chart-card full-width">
+    <div
+      echarts
+      [options]="produtosMaisVendidosOption"
+      [autoResize]="true"
+      class="demo-chart"
+    ></div>
+  </ion-card>
+
   <mat-card class="table-card">
     <mat-card-header>
       <mat-card-title>Evolução de Preços</mat-card-title>

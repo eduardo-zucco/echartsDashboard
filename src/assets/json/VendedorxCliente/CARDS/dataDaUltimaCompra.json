@@ -1,0 +1,11 @@
+{
+  "id": "dataDaUltimaCompra",
+  "title": "Data da Última Compra",
+  "infoText": "Data da última compra realizada pelo cliente.",
+  "icon": "calendar-outline",
+  "iconColor": "#311b92",
+  "iconBg": "#ede7f6",
+  "background": "#5351d2",
+  "hoverBackground": "#3d3ba8",
+  "canShow": true
+}

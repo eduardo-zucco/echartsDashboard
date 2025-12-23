@@ -1,0 +1,340 @@
+[
+  {
+    "id": "rankingProdutosPizza",
+    "title": "Produtos mais Vendidos",
+    "type": "pie",
+    "option": {
+      "title": {
+        "text": "Produtos mais Vendidos",
+        "left": "center",
+        "textStyle": { "fontSize": 15 }
+      },
+      "grid": { "left": "3%", "right": "4%", "bottom": "23%" },
+      "tooltip": { "trigger": "item", "appendToBody": true },
+      "legend": { "type": "scroll", "orient": "horizontal", "left": "center" },
+      "series": [
+        {
+          "type": "pie",
+          "data": [],
+          "radius": ["40%", "60%"],
+          "center": ["50%", "50%"],
+          "label": { "show": true, "position": "outside", "formatter": "{d}%" }
+        }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": {
+            "title": { "left": "center", "textStyle": { "fontSize": 14 } }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "heatmapClientesProdutos",
+    "title": "Heatmap: Clientes x Produtos",
+    "type": "heatmap",
+    "cols": 4,
+    "option": {
+      "title": {
+        "bottom": "92%",
+        "text": "Heatmap: Clientes x Produtos",
+        "left": "center",
+        "textStyle": { "fontSize": 15 }
+      },
+      "tooltip": {
+        "position": "top",
+        "zlevel": 2,
+        "z": 9999,
+        "appendToBody": true,
+        "formatter": ""
+      },
+      "grid": {
+        "height": "65%",
+        "top": "10%",
+        "left": "10%",
+        "right": "10%",
+        "bottom": "18%",
+        "containLabel": true
+      },
+      "xAxis": {
+        "type": "category",
+        "data": [],
+        "splitArea": { "show": true },
+        "axisLabel": {
+          "rotate": 35,
+          "width": 90,
+          "overflow": "truncate",
+          "ellipsis": "..."
+        }
+      },
+      "yAxis": {
+        "type": "category",
+        "data": [],
+        "splitArea": { "show": true },
+        "axisLabel": {
+          "rotate": 15,
+          "width": 90,
+          "overflow": "truncate",
+          "ellipsis": "..."
+        }
+      },
+      "visualMap": {
+        "calculable": true,
+        "orient": "horizontal",
+        "left": "center",
+        "bottom": "5%",
+        "itemWidth": 20,
+        "itemHeight": 120,
+        "textStyle": { "fontSize": 11 },
+        "inRange": {
+          "color": [
+            "#E3F2FD",
+            "#BBDEFB",
+            "#90CAF9",
+            "#64B5F6",
+            "#5E35B1",
+            "#4527A0"
+          ]
+        }
+      },
+      "series": [
+        {
+          "name": "Vendas por Cliente/Produto",
+          "type": "heatmap",
+          "data": [],
+          "label": { "show": true },
+          "emphasis": {
+            "itemStyle": {
+              "shadowBlur": 10,
+              "shadowColor": "rgba(0, 0, 0, 0.5)"
+            }
+          }
+        }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": {
+            "title": {
+              "bottom": "92%",
+              "text": "Heatmap: Clientes x Produtos",
+              "left": "center",
+              "textStyle": { "fontSize": 14 }
+            },
+            "xAxis": {
+              "axisLabel": {
+                "rotate": 45,
+                "width": 75,
+                "overflow": "truncate",
+                "ellipsis": "..."
+              }
+            },
+            "yAxis": {
+              "axisLabel": {
+                "rotate": 45,
+                "width": 65,
+                "overflow": "truncate",
+                "ellipsis": "..."
+              }
+            },
+            "grid": {
+              "height": "70%",
+              "top": "10%",
+              "left": "0%",
+              "right": "5%",
+              "bottom": "15%"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "produtos-mais-vendidos",
+    "title": "Produtos Mais Vendidos",
+    "type": "horizontalBar",
+    "option": {
+      "title": {
+        "text": "Produtos Mais Vendidos",
+        "show": true,
+        "textStyle": { "fontSize": 15 }
+      },
+      "tooltip": {
+        "trigger": "axis",
+        "show": true,
+        "appendToBody": true,
+        "axisPointer": { "type": "shadow" }
+      },
+      "legend": { "show": false },
+      "grid": {
+        "left": "5%",
+        "right": "8%",
+        "bottom": "10%",
+        "top": "15%",
+        "containLabel": false
+      },
+      "xAxis": {
+        "type": "value",
+        "show": true,
+        "axisLine": { "show": false },
+        "z": 2,
+        "axisTick": { "show": false },
+        "axisLabel": {
+          "formatter": "{value}",
+          "inside": false,
+          "show": true,
+          "interval": 0,
+          "rotate": 45
+        },
+        "boundaryGap": [0, 0.01]
+      },
+      "yAxis": [
+        {
+          "type": "category",
+          "data": [],
+          "show": true,
+          "inverse": true,
+          "position": "left",
+          "axisLine": { "show": false },
+          "z": 3,
+          "axisTick": { "show": false },
+          "axisLabel": { "color": "#000000", "inside": true, "show": true },
+          "nameLocation": "start"
+        }
+      ],
+      "series": [
+        {
+          "type": "bar",
+          "data": [],
+          "label": {
+            "show": false,
+            "formatter": "{c}",
+            "position": "right",
+            "distance": 0
+          },
+          "itemStyle": { "color": "#3991cf", "borderRadius": 4 }
+        }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": { "title": { "textStyle": { "fontSize": 14 } } }
+        }
+      ]
+    }
+  },
+  {
+    "id": "produtos-mais-devolvidos",
+    "title": "Produtos Mais Devolvidos",
+    "type": "horizontalBar",
+    "option": {
+      "title": {
+        "text": "Produtos Mais Devolvidos",
+        "show": true,
+        "textStyle": { "fontSize": 15 }
+      },
+      "tooltip": {
+        "trigger": "axis",
+        "show": true,
+        "appendToBody": true,
+        "axisPointer": { "type": "shadow" }
+      },
+      "legend": { "show": false },
+      "grid": {
+        "left": "5%",
+        "right": "8%",
+        "bottom": "10%",
+        "top": "15%",
+        "containLabel": false
+      },
+      "xAxis": {
+        "type": "value",
+        "show": true,
+        "axisLine": { "show": false },
+        "z": 2,
+        "axisTick": { "show": false },
+        "axisLabel": {
+          "formatter": "{value}",
+          "inside": false,
+          "show": true,
+          "interval": 0,
+          "rotate": 45
+        },
+        "boundaryGap": [0, 0.01]
+      },
+      "yAxis": [
+        {
+          "type": "category",
+          "data": [],
+          "show": true,
+          "inverse": true,
+          "position": "left",
+          "axisLine": { "show": false },
+          "z": 3,
+          "axisTick": { "show": false },
+          "axisLabel": { "color": "#000000", "inside": true, "show": true },
+          "nameLocation": "start"
+        }
+      ],
+      "series": [
+        {
+          "type": "bar",
+          "data": [],
+          "label": {
+            "show": false,
+            "formatter": "{c}",
+            "position": "right",
+            "distance": 0
+          },
+          "itemStyle": { "color": "#3991cf", "borderRadius": 4 }
+        }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": { "title": { "textStyle": { "fontSize": 14 } } }
+        }
+      ]
+    }
+  },
+  {
+    "id": "margemBruta",
+    "title": "Margem Bruta - Evolução",
+    "type": "bar",
+    "option": {
+      "title": {
+        "text": "Margem Bruta - Evolução",
+        "textStyle": { "fontSize": 15 }
+      },
+      "tooltip": { "trigger": "axis", "appendToBody": true },
+      "grid": { "left": "3%", "right": "4%", "bottom": "25%" },
+      "xAxis": {
+        "type": "category",
+        "data": [],
+        "axisLabel": { "rotate": 30, "interval": 0 }
+      },
+      "yAxis": { "type": "value" },
+      "series": [
+        { "data": [], "type": "bar", "itemStyle": { "color": "#00b9a3" } }
+      ],
+      "media": [
+        {
+          "query": { "maxWidth": 668 },
+          "option": {
+            "title": { "left": "center", "textStyle": { "fontSize": 14 } },
+            "xAxis": {
+              "axisLabel": {
+                "rotate": 45,
+                "width": 75,
+                "overflow": "truncate",
+                "ellipsis": "..."
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+]

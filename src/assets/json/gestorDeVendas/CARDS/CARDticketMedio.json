@@ -1,9 +1,8 @@
 {
   "id": "kpi-ticket-medio-total",
-  "endpoint": "gestor-vendas/ticket-medio-total",
   "title": "Ticket Médio",
   "infoText": "Valor Médio por Venda",
-  "icon": "checkmark-done-circle-outline",
+  "icon": "receipt-outline",
   "iconColor": "#4a148c",
   "iconBg": "#f3e5f5",
   "background": "#9575CD",

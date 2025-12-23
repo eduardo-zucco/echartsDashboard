@@ -110,6 +110,9 @@ export class DashboardTesteSwebPage implements OnInit {
   clientesXFaturamento!: EChartsCoreOption;
   kpiCards: KPICard[] = [];
 
+  produtosMaisVendidosOption!: EChartsCoreOption;
+
+
   spendData = [
     { name: 'Materiais de Escritório', value: 15000 },
     { name: 'Equipamentos', value: 45000 },
@@ -264,6 +267,96 @@ export class DashboardTesteSwebPage implements OnInit {
 
   initializeCharts() {
     const data = [18203, 23489, 29034, 104970, 131744, 630230];
+   const produtosMaisVendidosData = {
+      produtos: [
+        'Smartphone X',
+        'Notebook Pro',
+        'Fone Bluetooth',
+        'Monitor 24"',
+        'Teclado Mecânico'
+      ],
+      vendas: [150, 80, 230, 120, 95].sort((a, b) => b - a),
+    };
+
+
+   this.produtosMaisVendidosOption = {
+    title: {
+      text: 'Produtos Mais Vendidos',
+      show: true,
+      textStyle: { fontSize: 15 }
+    },
+    tooltip: {
+      trigger: 'axis',
+      show: true,
+      appendToBody: true,
+      axisPointer: { type: 'shadow' }
+    },
+    legend: { show: false },
+    grid: {
+      left: '5%',
+      right: '8%',
+      bottom: '10%',
+      top: '15%',
+      containLabel: false
+    },
+    xAxis: {
+      type: 'value',
+      show: true,
+      axisLine: { show: false },
+      z: 2,
+      axisTick: { show: false },
+      axisLabel: {
+        formatter: '{value}',
+        inside: false,
+        show: true,
+        interval: 0,
+        rotate: 45
+      },
+      boundaryGap: [0, 0.01]
+    },
+    yAxis: [
+      {
+        type: 'category',
+        data: produtosMaisVendidosData.produtos,
+        show: true,
+        inverse: true,
+        position: 'left',
+        axisLine: { show: false },
+        z: 3,
+        axisTick: { show: false },
+        axisLabel: {
+          color: '#ffffff',
+          inside: true,
+          show: true
+        },
+        nameLocation: 'start'
+      }
+    ],
+    series: [
+      {
+        type: 'bar',
+        data: produtosMaisVendidosData.vendas,
+        label: {
+          show: false,
+          formatter: '{c}',
+          position: 'right',
+          distance: 0
+        },
+        itemStyle: {
+          color: '#3991cf',
+          borderRadius: 4
+        }
+      }
+    ],
+    media: [
+      {
+        query: { maxWidth: 668 },
+        option: {
+          title: { textStyle: { fontSize: 14 } }
+        }
+      }
+    ]
+  };
     this.clientesXFaturamento = {
       title: {
         text: "Ranking de clientes por faturamento",
@@ -316,7 +409,7 @@ export class DashboardTesteSwebPage implements OnInit {
         axisLabel: {
 
           inside: true,
-          color: "#000000",
+          color: "#ffff",
           show: true
         },
         nameLocation: "start"

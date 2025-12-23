@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>testes-echarts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">testes-echarts</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <div
+      echarts
+      [options]="heatmapClientesProdutosOption"
+      class="demo-chart"
+    ></div>
+
+    <ion-card>
+      <div echarts [options]="mapaClientesPorUfOption" class="demo-chart"></div>
+    </ion-card>
+
+    <!-- <ion-card>
+      <div echarts [options]="produtosMaisVendidosData" class="demo-chart"></div>
+    </ion-card> -->
+  </div>
+</ion-content>

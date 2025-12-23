@@ -1,9 +1,10 @@
+
 {
   "id": "retencaoDeClientes",
   "title": "Retenção de Clientes (%)",
-  "type": "line",
+  "type": "stacked",
   "option": {
-    "colors": ["#2e86c1", "#5351d2", "#3498db", "#472966", "#9575CD", "#00b9a3"],
+    "color": ["#9575CD", "#00b9a3", "#5351d2", "#3498db",  "#472966", "#2E86C1", "#69dc9e"],
     "title": {
       "text": "Retenção de Clientes (%)",
       "textStyle": {
@@ -29,14 +30,10 @@
       }
     },
     "yAxis": {
-      "type": "value"
+      "type": "value",
+      "min": 0
     },
-    "series": [
-      {
-        "data": [],
-        "type": "line"
-      }
-    ],
+    "series": [],
     "media": [
       {
         "query": {

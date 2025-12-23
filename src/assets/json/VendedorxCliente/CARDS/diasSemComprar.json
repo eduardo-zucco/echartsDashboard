@@ -1,0 +1,11 @@
+{
+  "id": "diasSemComprar",
+  "title": "Dias Sem Comprar",
+  "infoText": "Número de dias desde a última compra do cliente.",
+  "icon": "time-outline",
+  "iconColor": "#3634a3",
+  "iconBg": "#eeeeff",
+  "background": "#7574db",
+  "hoverBackground": "#5a59c9",
+  "canShow": true
+}

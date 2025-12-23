@@ -30,5 +30,9 @@ export const routes: Routes = [
     path: 'dash-inicial',
     loadComponent: () => import('./pages/gerente-vendas/dash-inicial/dash-inicial.page').then( m => m.DashInicialPage)
   },
+  {
+    path: 'testes-echarts',
+    loadComponent: () => import('./pages/testes-echarts/testes-echarts.page').then( m => m.TestesEchartsPage)
+  },
 
 ];

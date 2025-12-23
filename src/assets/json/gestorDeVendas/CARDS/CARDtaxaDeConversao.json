@@ -1,7 +1,7 @@
 {
   "id": "kpi-taxa-de-conversao",
-  "title": "Taxa de Conversão de Pedidos",
-  "infoText": "Porcentual de Pedidos Convertidos em Vendas Fechadas",
+  "title": "Taxa de Conversão para Pedidos",
+  "infoText": "Porcentual de Orçamentos Convertidos em Pedidos",
   "icon": "bar-chart-outline",
   "iconColor": "#28a161",
   "iconBg": "#e8f9f1",
